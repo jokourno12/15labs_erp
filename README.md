@@ -30,3 +30,21 @@ For a standard installation please follow the <a href="https://www.odoo.com/docu
 from the documentation.
 
 To learn the software, we recommend the <a href="https://www.odoo.com/slides">Odoo eLearning</a>, or <a href="https://www.odoo.com/page/scale-up-business-game">Scale-up</a>, the <a href="https://www.odoo.com/page/scale-up-business-game">business game</a>. Developers can start with <a href="https://www.odoo.com/documentation/17.0/developer/howtos.html">the developer tutorials</a>
+
+
+# COMMAND
+1. Install Postgresql
+    - sudo apt-get update
+    - sudo apt-get install postgresql postgresql-contrib -y
+    - sudo systemctl status postgresql
+    - sudo -i -u postgres
+    - psql
+    - CREATE USER odoo WITH PASSWORD 'your_password';
+    - CREATE DATABASE odoo_db;
+    - GRANT ALL PRIVILEGES ON DATABASE odoo_db TO odoo;
+    - \q
+    - exit
+    - sudo -i -u postgres
+    - psql -c "\du"
+    - psql -c "\l"
+2. Clone Repository
