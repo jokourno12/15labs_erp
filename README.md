@@ -32,7 +32,7 @@ from the documentation.
 To learn the software, we recommend the <a href="https://www.odoo.com/slides">Odoo eLearning</a>, or <a href="https://www.odoo.com/page/scale-up-business-game">Scale-up</a>, the <a href="https://www.odoo.com/page/scale-up-business-game">business game</a>. Developers can start with <a href="https://www.odoo.com/documentation/17.0/developer/howtos.html">the developer tutorials</a>
 
 
-## Command
+## Command for Linux Ubuntu 24.04 LTS
 1. Install Postgresql
     - sudo apt-get update
     - sudo apt-get install postgresql postgresql-contrib -y
@@ -40,25 +40,22 @@ To learn the software, we recommend the <a href="https://www.odoo.com/slides">Od
     - sudo -i -u postgres
     - psql
     - CREATE USER odoo WITH PASSWORD 'your_password';
-    - CREATE DATABASE odoo_db;
-    - GRANT ALL PRIVILEGES ON DATABASE odoo_db TO odoo;
+    - ALTER USER odoo WITH SUPERUSER;
+    - \du
     - \q
     - exit
-    - sudo -i -u postgres
-    - psql -c "\du"
-    - psql -c "\l"
-2. Clone Repository
+2. Clone Repository and Setup Environment
     - git clone https://github.com/jokourno12/15labs_erp.git
     - cd 15labs_erp
     - maksure python v3.10.x: python3 --version
     - if not:
         - sudo add-apt-repository ppa:deadsnakes/ppa
-        - sudo apt update
         - sudo apt install python3.10 python3.10-venv python3.10-dev
-        - sudo apt install libpq-deb
         - sudo apt-get install build-essential libssl-dev libffi-dev python3-dev libsasl2-dev libldap2-dev
-    - sudo python3.1o -m venv myenv
-    - source myenv/bin/activate
+    - sudo python3.10 -m venv odoo-env
+    - source odoo-env/bin/activate
     - pip install --upgrade pip
+    - sudo apt-get install libpq-dev
     - pip install -r requirements.txt
+    - sudo nano debian/odoo.conf
     - ./odoo-bin -c debian/odoo.conf
